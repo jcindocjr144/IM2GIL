@@ -111,12 +111,13 @@ class Admin extends Database {
 
     // View grades for all students
     public function getAllGrades() {
-        $stmt = $this->getDb()->query("SELECT g.id as grade_id, u.username, s.subject_name, g.grade 
-                                       FROM grades g
-                                       JOIN users u ON g.student_id = u.id
-                                       JOIN subjects s ON g.subject_id = s.id");
+        $stmt = $this->getDb()->query(" SELECT g.id AS grade_id, st.id AS student_id, st.username, s.subject_name, g.grade
+    FROM grades g
+    JOIN students st ON g.student_id = st.id
+    JOIN subjects s ON g.subject_id = s.id");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
     // Method to get the database connection
     public function getConnection() {

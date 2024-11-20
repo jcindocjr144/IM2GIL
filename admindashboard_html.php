@@ -209,10 +209,9 @@ require_once 'database.php';
                 </thead>
                 <tbody>
                     <?php foreach ($grades as $grade): ?>
-            <?php foreach ($students as $student): ?>
                 
                 <tr>
-                    <td><?php echo htmlspecialchars($student['id']); ?></td>
+                    <td><?php echo htmlspecialchars($grade['student_id']); ?></td>
                             <td><?php echo htmlspecialchars($grade['username']); ?></td>
                             <td><?php echo htmlspecialchars($grade['subject_name']); ?></td>
                             <td><?php echo htmlspecialchars($grade['grade']); ?></td>
@@ -230,7 +229,6 @@ require_once 'database.php';
                                 </button>
                             </td>
                         </tr>
-                        <?php endforeach; ?>
                         <?php endforeach; ?>
                 </tbody>
             </table>
